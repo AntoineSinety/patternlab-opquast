@@ -1,0 +1,68 @@
+@mixin media($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@function randomNum($min, $max) {
+     $rand: random();
+     $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+     @return $randomNum;
+}
+
+@mixin grid($i,$n,$gutter-grid){
+
+	@if $n == 0 {
+		@include media($breakpoint-xl){
+
+			flex-basis: #{ 100% / $i - 3};
+
+			@supports (flex-basis: calc( 100% )) {
+				flex-basis: calc( ( 100% / #{$i} ) - #{$gutter-grid} * 2);
+			}
+		}
+	}
+
+	@else {
+		&:nth-child(odd){
+			@include media($breakpoint-md){
+
+				flex-basis: #{ 100% * $i / ($i + $n) - 3};
+
+				@supports (flex-basis: calc( 100% )) {
+					flex-basis: calc( ( ( ( 100% / #{$i + $n} ) - #{$gutter-grid} * 2) * #{$i} ) + (#{$gutter-grid} * 2 * #{$i - 1}) );
+				}
+			}
+		}
+
+		&:nth-child(even){
+			@include media($breakpoint-md){
+
+				flex-basis: #{ 100% * $n / ($i + $n) - 3};
+
+				@supports (flex-basis: calc( 100% )) {
+					flex-basis: calc( ( ( ( 100% / #{$i + $n} ) - #{$gutter-grid} * 2) * #{$n} ) + (#{$gutter-grid} * 2 * #{$n - 1}) );
+				}
+			}
+		}
+	}
+}

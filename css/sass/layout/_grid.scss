@@ -1,0 +1,96 @@
+[class *= 'grid']{
+     display: flex;  margin-left: -$gutter; margin-right: -$gutter;
+     flex-flow: row wrap;
+
+     > * {
+          flex: 1 1 100%; margin: $gutter;
+
+          @include media($breakpoint-grid){
+               flex-grow: 0;
+               flex-basis: calc(50% - #{$gutter} * 2);
+          }
+
+          @include media($breakpoint-xl){
+               flex-grow: 1;
+               flex-basis: auto;
+          }
+
+          &.push-right{
+               margin-left: auto;
+          }
+
+          &.enlarge{
+               flex-grow: 3;
+          }
+     }
+
+     &.no-marge{
+          margin-left: 0; margin-right: 0; margin-bottom: 0; margin-top: 0;
+
+          > * {
+               margin: 0;
+
+               @include media($breakpoint-grid){
+                    flex-grow: 0;
+                    flex-basis: calc(50%);
+               }
+          }
+     }
+}
+
+@for $i from 1 through $max-grid {
+
+     @if $i > 1 {
+          .grid-#{$i}{
+               > * {
+                    flex-grow: 0;
+
+                    @include grid($i,0,$gutter);
+
+                    &.enlarge{
+                         flex-grow: 0;
+                         flex-basis: 100%;
+                    }
+
+                    &.enlarge-2{
+                         @include media($breakpoint-xl){
+                              flex-grow: 0;
+                              flex-basis: calc( ( ( 100% / #{$i} ) - #{$gutter}) * 2 );
+                         }
+                    }
+               }
+
+               &.no-marge{
+                    > * {
+                         @include grid($i,0,0rem);
+
+                         &.enlarge-2{
+                              @include media($breakpoint-xl){
+                                   flex-grow: 0;
+                                   flex-basis: calc( ( 100% / #{$i} ) * 2 );
+                              }
+                         }
+                    }
+               }
+          }
+     }
+
+     @for $n from 1 through $max-grid - $i{
+
+          @if $i != $n and $i + $n <= $max-grid{
+
+               .grid-#{$i}-#{$n}{
+                    > *{
+                         flex-grow: 0;
+                         @include grid($i,$n,$gutter)
+                    }
+
+                    &.no-marge{
+                         > * {
+                              @include grid($i,$n,0rem);
+                         }
+                    }
+               }
+          }
+     }
+}
