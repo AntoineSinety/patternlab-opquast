@@ -6,3 +6,9 @@ iframe html {
     font-size: .625em;
     font-size: calc(1em * .625);
 }
+
+body{
+    &.no-scroll{
+        overflow-y: hidden;
+    }
+}

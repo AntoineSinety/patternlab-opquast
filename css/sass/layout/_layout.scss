@@ -27,3 +27,13 @@
         margin-left:auto; margin-right: auto;
     }
 }
+
+.wrapper-full{
+    margin-left: $margin-mob; margin-right: $margin-mob;
+    @include media ($breakpoint-md){
+        margin-left: $margin-tab; margin-right: $margin-tab;
+    }
+    @include media ($breakpoint-xl){
+        margin-left: $margin-desktop; margin-right: $margin-desktop;
+    }
+}
