@@ -1,4 +1,23 @@
+body{
+    color: $navy;
+    letter-spacing: 0.05rem;
+    font-family: $font-content;
+}
+
 h1{
     font-size: 3em;
     color: $yellow;
+}
+
+a{
+    &.link{
+        display: inline-block;
+        color: $green;
+    }
+}
+
+@font-face {
+    font-family: 'Maison Neue';
+    src: url(src/fonts/maison/.woff);
+    font-weight: 400;
 }
