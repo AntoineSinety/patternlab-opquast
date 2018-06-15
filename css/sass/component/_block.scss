@@ -1,0 +1,17 @@
+.section-illu{
+    position: relative;
+
+    figure{
+        position: absolute; top: 0; bottom: 0; right: 0;
+        width: 50%;
+        z-index: -1
+    }
+
+    .content{
+        width: 60%; max-width: 50rem;
+
+        p{
+            margin: 6rem 0;
+        }
+    }
+}
