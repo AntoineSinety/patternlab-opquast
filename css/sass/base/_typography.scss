@@ -6,6 +6,7 @@ body{
 
 h1,h2,h3,h4,h5,h6{
     font-family: $font-title; letter-spacing: 0.1rem;
+    margin: 0;
 }
 
 h1{
@@ -49,4 +50,6 @@ a{
     font-weight: 500;
     letter-spacing: 1px;
     color: $navy;
+    display: block;
+    text-align: left;
 }

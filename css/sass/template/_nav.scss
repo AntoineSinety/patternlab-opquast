@@ -1,0 +1,49 @@
+// Navigation entre les sections (slides)
+#fp-nav.right{
+    transform: translate(0, -50%);
+    right: 10rem;
+    
+    ul li{
+        width: auto;
+        height: auto;
+        margin: 15px 0;
+        a {
+            span{
+                font-family: $font-title;
+                font-size: 1.125em;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.3em;
+                color: #cccccc; 
+
+                position: relative;
+                z-index: 1;
+                height: auto;
+                width: auto;
+                border: 0;
+                background: transparent;
+                left: 0;
+                top: 0;
+                margin: 0;
+                &:hover{
+                    width: auto;
+                    height: auto;
+                    margin: auto;
+                }
+            }
+            &.active span{
+                color: #141e54;
+            }
+        }
+        &, &:hover{
+            a, a.active{
+                span{
+                    margin: 0;
+                    height: auto;
+                    width: auto;
+                }
+            }
+        }
+    }
+}

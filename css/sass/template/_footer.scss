@@ -1,0 +1,20 @@
+.main-footer{
+    background-color: $navy;
+    color: white;
+    font-size: 0.875em;
+    line-height: auto;
+    ul{
+        padding: 0;
+        list-style: none;
+        line-height: 1.7em;
+    }
+    li a{
+        color: white;
+        text-decoration: none;
+    }
+    .coordonnees{
+        font-family: $font-content;
+        font-size: 0.75em;
+        line-height: 2em;
+    }
+}
