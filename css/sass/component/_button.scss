@@ -20,3 +20,8 @@
 //     border-width: 0 38.5px 34px 38.5px;
 //     border-color: transparent transparent #000 transparent;
 // }
+button{
+    &:focus{
+        outline: none;
+    }
+}
