@@ -17,4 +17,84 @@
         font-size: 0.75em;
         line-height: 2em;
     }
+    .copyright{
+        font-family: $font-content;
+        font-size: 14px;
+        text-align: center;
+        padding-bottom: 5rem;
+    }
+    .rs-footer{
+        display: flex;
+        li { 
+            &:nth-child(2){
+                margin: 0 5rem;
+            }
+            svg{
+                width: 30px;
+                height: auto;
+                &:hover{
+                    path{
+                        fill: rgb(192, 192, 192); 
+                    }
+                }
+            }
+        }
+    }
+    #gform_1{
+        display: flex;
+        align-items: flex-end;
+        .gform_body{
+            ul{
+                margin-bottom:  0;
+            }
+            input[type="text"]{
+                border: 1px solid white;
+                background-color: transparent;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                height: 30px;
+                width: 100%;
+                padding: 0 10px;
+                color: white;
+                margin-top: 1.5rem;
+                box-sizing: border-box;
+            }
+        }
+        .gform_footer{
+            position: relative;
+            width: 5rem;
+            input{
+                border: none;
+                background-color: $green;
+                -webkit-appearance: none;
+                height: 30px;
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+                text-indent: -9999px;
+                width: 100%;
+            }
+            &::before,
+            &::after{
+                width: 12px;
+                height: 2px;
+                content: '';
+                position: absolute;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: white;
+                border-radius: 2px;
+            }
+            &::before{
+                transform: rotate(45deg);
+                top: -7px;
+            }
+            &::after{
+                transform: rotate(-45deg);
+                top: 7px;
+            }
+        }
+    }
 }
