@@ -2,7 +2,7 @@
 #fp-nav.right{
     transform: translate(0, -50%);
     right: 10rem;
-    
+
     ul li{
         width: auto;
         height: auto;
@@ -15,7 +15,7 @@
                 font-style: normal;
                 font-stretch: normal;
                 line-height: 1.3em;
-                color: #cccccc; 
+                color: #cccccc;
 
                 position: relative;
                 z-index: 1;
@@ -73,11 +73,20 @@ header nav {
             margin-left: 3rem;
             font-size: 1em; font-family: $font-content; font-weight: 400;
             color: $navy; letter-spacing: 0.05rem;
+            transform: translateY(-0.3rem);
         }
 
         .nav-left{
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            transform: translateY(-0.5rem);
+            z-index: 5;
 
             button{
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
                 background-color: transparent;
                 border: none; padding: 0;
                 cursor: pointer;
@@ -100,13 +109,6 @@ header nav {
                     position: relative;
                     z-index: 2;
                     transition: all 0.3s ease;
-
-                    &:focus, &:hover{
-                        svg path:nth-child(2){
-                            transform:translateX(1rem);
-                            transition: all 0.3s ease;
-                        }
-                    }
                 }
 
                 .label-btn{
