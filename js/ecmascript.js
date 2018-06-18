@@ -135,7 +135,7 @@
         flagWheel = false;
 
     document.addEventListener("wheel", function(e) {
-        if(window.innerWidth > 1200){
+        if(window.innerWidth > 1000){
             if(flagWheel){
                 return
             }
