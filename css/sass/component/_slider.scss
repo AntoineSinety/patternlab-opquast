@@ -1,0 +1,44 @@
+.nav-slider{
+    display: none;
+    position: fixed; top: 50%; right: 5rem;
+    list-style: none; padding: 0; margin: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+
+    @include media($breakpoint-xl){
+        display: block;
+    }
+
+    .btn-slider{
+        margin-bottom: 2rem;
+        background-color: transparent;
+        border: none;
+        color: $grey; letter-spacing: 0.1rem;
+        font-family: $font-title; font-weight: 700; font-size: 1.2em;
+        cursor: pointer;
+
+        &.triggered{
+            color: $navy;
+        }
+    }
+}
+
+
+body{
+    @include media($breakpoint-xl){
+        overflow: hidden;
+    }
+}
+
+.section-slider{
+    @include media($breakpoint-xl){
+        position: relative;
+        display: flex; min-height: 100vh;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+
+    &:nth-child(2n){
+        background-color: $light-grey;
+    }
+}

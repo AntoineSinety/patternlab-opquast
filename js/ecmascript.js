@@ -91,32 +91,82 @@
      "complete"!==document.readyState?window.addEventListener("load",l,!1):l()}})();
 
 	//----- FUNCTIONS -----
+    const cleanClass = function(target, className){
+        if(target.classList.contains(className)){
+            target.classList.remove(className);
+        }
+    }
+
+    const navController = function () {
+        document.querySelector('.nav').classList.toggle('triggered');
+        document.querySelector('.nav-full').classList.toggle('triggered');
+        document.querySelector('body').classList.toggle('no-scroll');
+        if(flagBurger){
+            document.querySelector('#top-anim').beginElement();
+            document.querySelector('#middle-anim').beginElement();
+            document.querySelector('#bottom-anim').beginElement();
+        } else {
+            document.querySelector('#top-base').beginElement();
+            document.querySelector('#middle-base').beginElement();
+            document.querySelector('#bottom-base').beginElement();
+        }
+        flagBurger = !flagBurger;
+    }
+
+    const sliderController = function (target) {
+        let yPos = (slider[target].offsetTop + slider[target].clientTop);
+        console.log(yPos);
+        window.scroll({
+            top: yPos,
+            left: 0,
+            behavior: 'smooth'
+        });
+        btnSlider.forEach(function(btn){
+            cleanClass(btn, 'triggered');
+        })
+        btnSlider[target].classList.add('triggered');
+    }
 
     //----- INIT -----
+    let flagBurger = true,
+        slider = document.querySelectorAll('.section-slider'),
+        btnSlider = document.querySelectorAll('.btn-slider'),
+        lastScrollPos = 0,
+        flagWheel = false;
 
+    document.addEventListener("wheel", function(e) {
+        if(window.innerWidth > 1200){
+            if(flagWheel){
+                return
+            }
+            let delta,
+                target = parseInt(document.querySelector('.btn-slider.triggered').getAttribute('data-target'));
+            if (e.wheelDelta){
+                delta = e.wheelDelta;
+            } else {
+                delta = -1 * e.deltaY;
+            }
 
-
-    //----- EVENTS -----
-    let flagBurger = true;
+            if ( (delta < 0) && (target + 1 < btnSlider.length) ){
+                sliderController(target+1);
+            } else if ( (delta > 0) && (target - 1 >= 0) ){
+                sliderController(target-1);
+            }
+            flagWheel = true;
+            setTimeout(function(){flagWheel = false;}, 500);
+        }
+    });
 
     document.addEventListener('click', function (e) {
         let  el = e.target;
 
         //Menu navigation
         if (el.classList.contains('burger')){
-            document.querySelector('.nav').classList.toggle('triggered');
-            document.querySelector('.nav-full').classList.toggle('triggered');
-            document.querySelector('body').classList.toggle('no-scroll');
-            if(flagBurger){
-                document.querySelector('#top-anim').beginElement();
-                document.querySelector('#middle-anim').beginElement();
-                document.querySelector('#bottom-anim').beginElement();
-            } else {
-                document.querySelector('#top-base').beginElement();
-                document.querySelector('#middle-base').beginElement();
-                document.querySelector('#bottom-base').beginElement();
-            }
-            flagBurger = !flagBurger;
+            navController();
+        };
+
+        if (el.classList.contains('btn-slider')){
+            sliderController(el.getAttribute('data-target'));
         };
 	});
 

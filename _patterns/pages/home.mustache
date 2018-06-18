@@ -1,7 +1,15 @@
-{{> block-section-illu }}
-{{> block-grid-3 }}
-{{> block-section-illu }}
-{{> block-section-illu }}
-{{> block-section-illu }}
-
-
+<ul class="nav-slider">
+    <li><button type="button" class="btn-slider triggered" data-target="0">01</button></li>
+    <li><button type="button" class="btn-slider" data-target="1">02</button></li>
+    <li><button type="button" class="btn-slider" data-target="2">03</button></li>
+    <li><button type="button" class="btn-slider" data-target="3">04</button></li>
+    <li><button type="button" class="btn-slider" data-target="4">05</button></li>
+</ul>
+{{> header-nav }}
+<body>
+    {{> block-section-illu-left }}
+    {{> block-grid-3 }}
+    {{> block-section-illu-left }}
+    {{> block-section-actu }}
+    {{> block-section-illu-right }}
+</body>

@@ -1,4 +1,4 @@
-.arrowUp, 
+.arrowUp,
 .arrowDown{
     position:fixed;
     z-index:99;
@@ -9,6 +9,7 @@
     margin-left: -38px;
     left: 50%;
 }
+
 //Systeme btn up and down TEMPO
 // .arrowDown{
 //     bottom: 20px;
@@ -20,6 +21,7 @@
 //     border-width: 0 38.5px 34px 38.5px;
 //     border-color: transparent transparent #000 transparent;
 // }
+
 button{
     &:focus{
         outline: none;
