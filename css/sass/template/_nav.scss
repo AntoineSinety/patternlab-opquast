@@ -9,20 +9,33 @@ header nav {
     .nav{
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-between; align-items: flex-end;
+        justify-content: space-between; align-items: center;
+
+        @include media($breakpoint-xl){
+            align-items: flex-end;
+        }
 
         a:first-child {
             display: flex;
-            flex-flow: row wrap; align-items: flex-end;
+            flex-flow: column wrap; align-items:flex-start;
             text-decoration: none;
             z-index: 3;
+
+            @include media($breakpoint-xl){
+                flex-flow: row nowrap;
+                align-items: flex-end;
+            }
         }
 
         .baseline{
-            margin-left: 3rem;
+            margin-top: 2rem;
             font-size: 1em; font-family: $font-content; font-weight: 400;
             color: $navy; letter-spacing: 0.05rem;
-            transform: translateY(-0.3rem);
+
+            @include media($breakpoint-xl){
+                transform: translateY(-0.3rem);
+                margin-left: 3rem; margin-top: 0;
+            }
         }
 
         .nav-left{
@@ -60,8 +73,13 @@ header nav {
                 }
 
                 .label-btn{
+                    display: none;
                     margin-right: 1rem;
                     font-size: 0.7em;
+
+                    @include media($breakpoint-md){
+                        display: inline;
+                    }
                 }
             }
         }
@@ -69,16 +87,21 @@ header nav {
 }
 
 .nav-full{
-    display: none; padding-top: 6rem;
+    display: none; padding-top: 20rem;
     flex-flow: column nowrap; justify-content: center;
-    position: fixed; top: 0; bottom: 0; right: 0; left: 0;
+    position: fixed; top: 10rem; bottom: 0; right: 0; left: 0;
     background-color: $light-grey;
     color: $navy; font-family: $font-title; font-size: 2em; font-weight: 700;
-    overflow-y: scroll;
+    overflow-x: hidden;
+
+    @include media($breakpoint-grid){
+        top: 0; padding-top: 0;
+    }
 
     &.triggered{
         display: flex;
         animation: translateMenu 0.8s forwards;
+        overflow-y: scroll;
     }
 
     ul{
@@ -96,13 +119,14 @@ header nav {
     .top{
         align-items: flex-end;
 
-        .nav-open-left{
-
-        }
-
         .nav-open-right{
+            display: none;
             position: relative;
             font-size: 0.8em;
+
+            @include media($breakpoint-grid){
+                display: block;
+            }
 
             &::before{
                 content: "";
@@ -123,8 +147,12 @@ header nav {
         }
 
         .social{
-            display: flex;
+            display: flex; margin-top: 5rem;
             flex-flow: row nowrap;
+
+            @include media($breakpoint-grid){
+                margin-top: 3rem;
+            }
 
             li{
                 margin-bottom: 0;
@@ -134,5 +162,16 @@ header nav {
                 margin: 0 3rem;
             }
         }
+    }
+}
+
+.bg-nav{
+    position: absolute; bottom: -20rem;
+    z-index: -1;
+    height: 100vh;
+
+    @include media($breakpoint-grid){
+        bottom: 0; left: 0; right: 0;
+        height: auto;
     }
 }
