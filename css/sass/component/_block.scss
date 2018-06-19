@@ -208,6 +208,36 @@
 
 .section-timeline{
 
+    .title-bloc{
+        position: relative;
+        margin-bottom: 7rem;
+        h2{
+            max-width: 85%;
+            text-align-last: center;
+            margin: auto;
+            span{
+                text-align-last: left;
+                display: block;
+                font-family: $font-title;
+                font-size: 20px;
+                font-weight: 500;
+                color: $navy;
+            }
+        }
+        &::after{
+            content: attr(data-keyword);
+            font-size: 11em;
+            color: #e9e9e9;
+            position: absolute;
+            transform: translate( -50%, -50%);
+            top: 20%;
+            left: 50%;
+            z-index: -1;
+            font-family: $font-title;
+            font-weight: bolder;
+        }
+    }
+
     .grid-3{
         margin: 5rem 0 0 0;
 
