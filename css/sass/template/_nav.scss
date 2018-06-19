@@ -43,7 +43,7 @@ header nav {
             display: flex;
             flex-flow: row nowrap;
             transform: translateY(-0.5rem);
-            z-index: 3;
+            z-index: 10;
 
             button{
                 display: flex;
@@ -87,15 +87,16 @@ header nav {
 }
 
 .nav-full{
-    display: none; padding-top: 20rem;
+    display: none; padding-top: 10rem;
     flex-flow: column nowrap; justify-content: center;
-    position: fixed; top: 10rem; bottom: 0; right: 0; left: 0;
+    position: fixed; bottom: 0; right: 0; left: 0; top: 0;
     background-color: $light-grey;
     color: $navy; font-family: $font-title; font-size: 2em; font-weight: 700;
     overflow-x: hidden;
+    z-index: 5;
 
     @include media($breakpoint-grid){
-        top: 0; padding-top: 0;
+        z-index: 1;
     }
 
     &.triggered{
@@ -166,12 +167,11 @@ header nav {
 }
 
 .bg-nav{
-    position: absolute; bottom: -20rem;
+    position: absolute; bottom: -10rem; left: 0; right: 0;
     z-index: -1;
     height: 100vh;
 
     @include media($breakpoint-grid){
-        bottom: 0; left: 0; right: 0;
-        height: auto;
+        height: auto; bottom: 0;
     }
 }
