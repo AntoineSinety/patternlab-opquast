@@ -31,8 +31,10 @@ body{
 }
 
 .section-slider{
+    padding: 5rem 0;
+
     @include media($breakpoint-xl){
-        position: relative;
+        position: relative; padding: 0;
         display: flex; min-height: 100vh;
         flex-flow: column nowrap;
         justify-content: center;
@@ -40,5 +42,17 @@ body{
 
     &:nth-child(2n){
         background-color: $light-grey;
+    }
+
+    .title-section{
+        display: inline-block;
+
+        .number-section{
+            display: none;
+
+            @include media($breakpoint-xl){
+                display: inline-block;
+            }
+        }
     }
 }
