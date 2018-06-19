@@ -31,13 +31,17 @@ body{
 }
 
 .section-slider{
-    padding: 5rem 0;
+    padding: 5rem 0; position: relative;
 
     @include media($breakpoint-xl){
         position: relative; padding: 0;
         display: flex; min-height: 100vh;
         flex-flow: column nowrap;
         justify-content: center;
+    }
+
+    &[class *= "section-illu"]{
+        padding: 15rem 0 5rem 0;
     }
 
     &:nth-child(2n){

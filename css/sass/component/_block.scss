@@ -1,33 +1,38 @@
+
 [class *= "section-illu"]{
+
+    @include media($breakpoint-xl){
+        padding: 0;
+    }
 
     &.section-illu-right{
         figure {
-            @include media($breakpoint-xl){
-                left: 0;
-            }
+            left: 0;
         }
 
         .content{
+            margin-left: 5rem;
+
             @include media($breakpoint-xl){
-                max-width: 50%; margin-left: auto;
+                width: 50%; margin-left: auto;
             }
         }
     }
 
     &.section-illu-left {
         figure {
-            @include media($breakpoint-xl){
-                right: 0;
-            }
+            right: 0;
         }
     }
 
     figure{
+        position: absolute; top: -2.5rem;
         margin: 3rem 0;
         z-index: -1;
+        width: 60%;
 
         @include media($breakpoint-xl){
-            position: absolute; top: 0; bottom: 0;
+            position: absolute; top: 0; bottom: 0; right: auto;
             width: 50%;
         }
 
@@ -81,18 +86,61 @@
 }
 
 .section-3-col{
-    
+
     .grid-3{
 
         margin-left: 0; margin-right: 0;
 
         .une-col{
-            text-align: center;
+            display: flex; justify-content: space-between;
+            flex-flow: row nowrap;
+            margin: 6rem 0 0 0;
+
+            @include media($breakpoint-grid){
+                display: block;
+                margin: 3rem;
+            }
+
+            &:nth-child(2){
+
+                figure{
+                    order: 2;
+
+                    @include media($breakpoint-grid){
+                        order: 1;
+                    }
+                }
+
+                .content{
+                    order: 1;
+                    margin-left: 0; margin-right: 3rem;
+
+                    @include media($breakpoint-grid){
+                        order: 2;
+                    }
+                }
+            }
+
+
             img{
+                flex: 0 0 40%;
                 max-width: 100%;
                 height: auto;
                 margin-bottom: 3rem;
             }
+
+            .content{
+                flex: 0 0 60%; margin-left: 3rem;
+
+                &:nth-child(2){
+                    order: 1;
+
+                    @include media($breakpoint-grid){
+                        order: 2;
+                    }
+                }
+            }
+
             h4{
                 margin-bottom: 1.5rem;
             }
