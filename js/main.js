@@ -168,8 +168,12 @@
     };
 
     var sliderController = function sliderController(target) {
-        var yPos = slider[target].offsetTop + slider[target].clientTop;
-        console.log(yPos);
+        var yPos = void 0;
+        if (target === slider.length) {
+            yPos = document.querySelector('footer').offsetTop + document.querySelector('footer').clientTop;
+        } else {
+            yPos = slider[target].offsetTop + slider[target].clientTop;
+        }
         window.scroll({
             top: yPos,
             left: 0,
@@ -178,7 +182,9 @@
         btnSlider.forEach(function (btn) {
             cleanClass(btn, 'triggered');
         });
-        btnSlider[target].classList.add('triggered');
+        if (target != slider.length) {
+            btnSlider[target].classList.add('triggered');
+        }
     };
 
     //----- INIT -----
@@ -194,14 +200,19 @@
                 return;
             }
             var delta = void 0,
-                target = parseInt(document.querySelector('.btn-slider.triggered').getAttribute('data-target'));
+                target = document.querySelector('.btn-slider.triggered');
+            if (target === null) {
+                target = 5;
+            } else {
+                target = parseInt(target.getAttribute('data-target'));
+            }
             if (e.wheelDelta) {
                 delta = e.wheelDelta;
             } else {
                 delta = -1 * e.deltaY;
             }
 
-            if (delta < 0 && target + 1 < btnSlider.length) {
+            if (delta < 0 && target + 1 <= btnSlider.length) {
                 sliderController(target + 1);
             } else if (delta > 0 && target - 1 >= 0) {
                 sliderController(target - 1);

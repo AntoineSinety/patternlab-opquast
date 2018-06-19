@@ -3,6 +3,12 @@
     color: white;
     font-size: 0.875em;
     line-height: auto;
+
+    .grid-3{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     ul{
         padding: 0;
         list-style: none;
@@ -25,7 +31,7 @@
     }
     .rs-footer{
         display: flex;
-        li { 
+        li {
             &:nth-child(2){
                 margin: 0 5rem;
             }
@@ -34,7 +40,7 @@
                 height: auto;
                 &:hover{
                     path{
-                        fill: rgb(192, 192, 192); 
+                        fill: rgb(192, 192, 192);
                     }
                 }
             }
