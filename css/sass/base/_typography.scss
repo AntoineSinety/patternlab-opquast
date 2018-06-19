@@ -1,7 +1,7 @@
 body{
     color: $navy;
     font-family: $font-content; font-weight: 400; font-size: 1.4rem;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.05rem; line-height: 1.15;
 
     @include media($breakpoint-md){
         font-size: 1.6rem;

@@ -87,8 +87,15 @@
 
 .section-3-col{
 
-    .grid-3{
+    .title-section{
+        text-align: center;
 
+        @include media($breakpoint-grid){
+            text-align: left;
+        }
+    }
+
+    .grid-3{
         margin-left: 0; margin-right: 0;
 
         .une-col{
@@ -181,7 +188,7 @@
     .wrapper-video {
         max-width: 560px;
         margin: auto;
-        
+
         div {
             position: relative;
             height: 0;
@@ -196,5 +203,80 @@
             }
         }
     }
-        
+
+}
+
+.section-timeline{
+
+    .grid-3{
+        margin: 5rem 0 0 0;
+
+        @include media($breakpoint-xl){
+            margin-left: -3rem; margin-right: -3rem;
+        }
+    }
+
+    .item{
+        position: relative;
+        flex: 0 0 100%; margin: 0;
+        display: flex;
+        flex-flow: row nowrap; align-items: center;
+
+        @include media($breakpoint-xl) {
+            display: block;
+            flex-basis: calc( ( 100% / 3 ) - #{$gutter} * 2);
+            margin: $gutter;
+        }
+
+        &::before{
+            content: "";
+            position: absolute; left: calc(30% + 4rem); top: 0; bottom: 0;
+            height: auto; width: 0.3rem;
+            background-color: $grey;
+            transform: translate(-50%,0);
+
+            @include media($breakpoint-xl) {
+                height: 0.3rem; width: auto;
+                top: 24rem; left: -3rem; right: -3rem;
+                transform: translate(0,-50%);
+            }
+        }
+
+        figure{
+            flex: 0 0 30%;
+            position: relative;
+            max-height: 20rem;
+
+            &::before{
+                content: "";
+                position: absolute; bottom: 50%; right: -4rem;
+                height: 1rem; width: 1rem;
+                border-radius: 100%;
+                transform: translate(50%,50%);
+                background-color: $grey;
+
+                @include media($breakpoint-xl) {
+                    bottom: -4rem; left: 50%; right: auto;
+                    transform: translate(0,50%);
+                }
+            }
+
+            img{
+                @supports(object-fit: contain){
+                    width: 100%; height: 20rem;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        p{
+            flex: 0 0 calc(70% - 8rem);
+            margin-left: 8rem;
+
+            @include media($breakpoint-xl) {
+                margin-top: 8rem; margin-left:0;
+                text-align: center;
+            }
+        }
+    }
 }
