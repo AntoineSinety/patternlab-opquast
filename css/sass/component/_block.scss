@@ -102,10 +102,12 @@
             display: flex; justify-content: space-between;
             flex-flow: row nowrap;
             margin: 6rem 0 0 0;
+            flex-wrap: wrap;
 
             @include media($breakpoint-grid){
                 display: block;
                 margin: 3rem;
+                flex-wrap: inherit;
             }
 
             &:nth-child(2){
@@ -133,11 +135,17 @@
                 flex: 0 0 40%;
                 max-width: 100%;
                 height: auto;
+                margin: auto;
                 margin-bottom: 3rem;
+                max-height: 350px;
+                @include media($breakpoint-grid){
+                    flex: 0 0 100%;
+                }
             }
 
             .content{
                 flex: 0 0 60%; margin-left: 3rem;
+
 
                 &:nth-child(2){
                     order: 1;
@@ -147,9 +155,16 @@
                     }
                 }
             }
-
+            .wrapper-texte{
+                padding: 0 3rem;
+            }
             h4{
+                margin: auto;
                 margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            .texte{
+                text-align: center;
             }
         }
     }
@@ -307,6 +322,22 @@
                 margin-top: 8rem; margin-left:0;
                 text-align: center;
             }
+        }
+    }
+}
+
+
+.wrapper-illustr{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    & > div{
+        padding: 4rem;
+        text-align: center;
+        flex: 0 0 50%;
+        
+        @include media($breakpoint-grid){
+            flex: 0 0 25%;
         }
     }
 }

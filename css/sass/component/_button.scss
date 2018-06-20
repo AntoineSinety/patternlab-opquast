@@ -1,29 +1,26 @@
-.arrowUp,
-.arrowDown{
-    position:fixed;
-    z-index:99;
-    cursor: pointer;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    margin-left: -38px;
-    left: 50%;
-}
-
-//Systeme btn up and down TEMPO
-// .arrowDown{
-//     bottom: 20px;
-//     border-width: 38.5px 34px 0 38.5px;
-//     border-color: #000 transparent transparent transparent;
-// }
-// .arrowUp{
-//     top: 20px;
-//     border-width: 0 38.5px 34px 38.5px;
-//     border-color: transparent transparent #000 transparent;
-// }
-
 button{
     &:focus{
         outline: none;
+    }
+}
+
+
+.btn{
+
+    font-family: $font-title;
+    font-size: 0.925em;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    background-color: $yellow;
+    padding: 2rem 7.5rem;
+    border-radius: 35px;
+    border: none;
+    appearance: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    &:hover{
+        background-color: #F1BE00;
     }
 }
