@@ -24,7 +24,7 @@
 }
 
 
-body{
+body.slider{
     @include media($breakpoint-xl){
         overflow: hidden;
     }
