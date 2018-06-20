@@ -1,10 +1,6 @@
-header nav {
+nav {
     margin-top: 1rem; margin-bottom: 5rem;
     z-index: 3;
-
-    @include media($breakpoint-xl){
-        position: fixed; top: 0; left: 0; right: 0;
-    }
 
     .nav{
         display: flex;
@@ -28,7 +24,7 @@ header nav {
         }
 
         .baseline{
-            margin-top: 2rem;
+            margin: 2rem 0 0 0;
             font-size: 1em; font-family: $font-content; font-weight: 400;
             color: $navy; letter-spacing: 0.05rem;
 
@@ -179,6 +175,8 @@ header nav {
 
 // Page checklist seulement 
 .nav-sous-menu-checklist{
+    margin-bottom: 6.5rem;
+    margin-top: 4rem;
     ul{
         list-style: none;
         padding: 0;

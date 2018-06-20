@@ -27,9 +27,14 @@
             background-color: #f8f8f8;
             margin: 1.5rem;
             
-            flex: 0 0 auto;
-            padding: 1rem;
+            flex: 0 0 calc(10% - 3rem);
+            padding: 1rem 0;
             text-align: center;
+            cursor: pointer;
+
+            &:nth-child(10n+1){
+                margin-left: 0;
+            }
 
             &.actif{
                 border: solid 1px $yellow;
@@ -47,22 +52,24 @@
             }
             svg{
                 margin: auto;
-                width: 5rem;
-                height: 5rem;
+                width: auto;
+                height: 10rem;
                 display: block;
-
-                path{
+                padding-top: 2rem;
+                path, rect{
                     fill: #888888;
                 }
             }
             .type{
-                font-size: 20px;
+                font-size: 1em;
                 line-height: normal;
                 text-align: center;
                 color: #888888;
+                text-align: center;
             }
             span{
                 color: #888888;
+                font-size: 0.75em;
             }
         }
     }

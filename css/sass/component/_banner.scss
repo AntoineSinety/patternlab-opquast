@@ -1,0 +1,33 @@
+.title-banner{
+    background-color: $light-grey; padding-bottom: 6rem;
+    overflow: hidden;
+
+    .title{
+        display: flex; margin-top: 15rem;
+        flex-flow: column nowrap; justify-content: space-between; align-items: center;
+
+        @include media($breakpoint-xl){
+            flex-flow: row wrap;
+        }
+
+        h1{
+            position: relative; z-index: 1; margin-bottom: 4rem;
+
+            @include media($breakpoint-xl){
+                margin-bottom: 0;
+            }
+
+            &::before{
+                position: absolute; top: -9rem; left: -7rem; width: max-content;
+                content: attr(data-text);
+                font-size: 3em; font-family: $font-title; font-weight: 700;
+                color: rgba($grey, 0.5);
+                z-index: -1;
+            }
+        }
+
+        a{
+            position: relative; z-index: 1;
+        }
+    }
+}
