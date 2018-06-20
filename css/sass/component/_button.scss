@@ -4,23 +4,27 @@ button{
     }
 }
 
-
 .btn{
+    display: inline-block;
+    padding: 1.5rem 7rem;
+    border-radius: 3rem; border: none;
+    background-color: transparent;
+    text-decoration: none;
 
-    font-family: $font-title;
-    font-size: 0.925em;
-    font-weight: bold;
-    text-align: center;
-    color: #ffffff;
-    background-color: $yellow;
-    padding: 2rem 7.5rem;
-    border-radius: 35px;
-    border: none;
-    appearance: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    &:hover{
-        background-color: #F1BE00;
+    span{
+        color: #fff; text-transform: uppercase; text-decoration: none;
+        font-size: 0.9em; font-family: $font-title; letter-spacing: 0.2rem;
+    }
+
+    &.btn-yellow{
+        background-color: $yellow;
+    }
+
+    &.btn-green{
+        background-color: $green;
+    }
+
+    &.btn-navy{
+        background-color: $navy;
     }
 }

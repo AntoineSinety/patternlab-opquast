@@ -1,0 +1,7 @@
+.home{
+    nav{
+        @include media($breakpoint-xl){
+            position: fixed; top: 0; left: 0; right: 0;
+        }
+    }
+}
