@@ -2,6 +2,8 @@ button{
     &:focus{
         outline: none;
     }
+
+    cursor: pointer;
 }
 
 .btn{
@@ -26,5 +28,13 @@ button{
 
     &.btn-navy{
         background-color: $navy;
+    }
+
+    &.btn-light-yellow{
+        background-color: transparent; border: 0.3rem solid $yellow;
+
+        span{
+            color: $yellow;
+        }
     }
 }

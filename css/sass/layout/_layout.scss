@@ -46,3 +46,18 @@
         margin-left: $margin-desktop; margin-right: $margin-desktop;
     }
 }
+
+.wrapper-illustr{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    & > div{
+        padding: 4rem;
+        text-align: center;
+        flex: 0 0 50%;
+
+        @include media($breakpoint-grid){
+            flex: 0 0 25%;
+        }
+    }
+}
