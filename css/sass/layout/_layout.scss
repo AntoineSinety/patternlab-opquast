@@ -57,7 +57,7 @@
         flex: 0 0 50%;
 
         @include media($breakpoint-grid){
-            flex: 0 0 25%;
+            flex: 0 0 20%;
         }
     }
 }

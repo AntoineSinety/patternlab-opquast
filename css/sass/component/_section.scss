@@ -190,3 +190,145 @@
     }
 
 }
+
+.section-tarif{
+    background-color: #f8f8f8;
+    .title-bloc{
+        h2{
+            z-index: 2;
+        }
+        &:after{
+            z-index: 1;
+            color: #f1f1f1;
+        }
+    }
+    #pricing-table{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        position: relative;
+        &::before{
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="270px" height="89px" viewBox="0 0 270 89" version="1.1"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="ELEMENT-TARIF" fill="#DDDDDD" fill-rule="nonzero"><g id="ELEMENT"><path d="M128.944444,88.9939386 C101.166667,88.9939386 44.5833333,62.0371518 0,0.758950203 L1.11111111,0 C52.7777778,71.0040079 120.305556,95.5715071 139.833333,85.452171 C150.444444,79.8303177 159.555556,66.590853 167.611111,54.8411795 C177.138889,40.9552017 185.361111,29.0087633 194.416667,30.5828823 C203.472222,32.1570012 208.805556,45.199701 213.333333,56.6401726 C216.444444,64.6513136 219.444444,71.959723 222.888889,73.22464 C223.909402,73.5526053 225.021631,73.3977197 225.916667,72.803001 C234.25,68.0525349 236.75,55.2347092 239.444444,41.6579334 C243.194444,22.6279598 247.444444,1.04004287 270,1.04004287 L270,2.44550621 C248.555556,2.44550621 244.583333,22.5155227 240.75,41.939026 C237.972222,55.8250038 235.416667,68.9520314 226.527778,74.0398087 C225.284691,74.8337796 223.754538,75.0195891 222.361111,74.5457755 C218.25,73.0840936 215.333333,65.7194657 211.972222,57.1742486 C207.611111,45.9305419 202.638889,33.4500275 194.138889,31.8759085 C185.638889,30.3017896 177.472222,42.6417577 168.694444,55.5720204 C160.555556,67.434131 151.333333,80.8703605 140.416667,86.4922139 C136.839149,88.2242963 132.90941,89.0812467 128.944444,88.9939386 Z" id="Shape"/></g></g></g></svg>');
+            position: absolute;
+            top: -10%;
+            right: 20%;
+            z-index: 2;
+        }
+        .plan{
+            flex: 0 0 33%;
+            background-color: white;
+            text-align: center;
+            position: relative;
+            border-radius: 1rem;
+            min-width: 380px;
+            .content-price{
+                transform: translate(0, -50%);
+                position: relative;
+                top: 50%;
+                padding: 9rem 0;
+                .price{
+                    font-family: $font-title;;
+                    font-size: 36px;
+                    font-weight: 500;
+                    letter-spacing: 1.5px;
+                    text-align: center;
+                    color: #141e54;
+                }
+                .tva {
+                    font-family: $font-content;
+                    font-size: 10px;
+                    letter-spacing: 0.5px;
+                    text-align: center;
+                    color: #d1d1d1;
+                    margin-bottom: 2rem;
+                }
+                .forfait {
+                    font-family: $font-title;
+                    font-size: 18px;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    text-align: center;
+                    margin-bottom: 6rem;
+                }
+                ul {
+                    font-family: $font-content;
+                    font-size: 12px;
+                    letter-spacing: 0.5px;
+                    list-style: none;
+                    text-align: left;
+                    display: inline-block;
+                    padding: 0;
+                    li{
+                        padding: 1rem 0;
+                        &:before{
+                            content: '';
+                            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 128 160" x="0px" y="0px"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:16px;}</style></defs><polyline class="cls-1" points="20.06 69.06 51 100 103.94 28.06"/></svg>') no-repeat;
+                            width: 23px;
+                            height: 23px;
+                            vertical-align: middle;
+                            background-color: $yellow;
+                            display: inline-block;
+                            padding-right: 1rem;
+                        }
+                        &[data-tarif="0"]{
+                            color: #dddddd;
+                            text-decoration: line-through;
+                            &:before{
+                                background-color: #d1d1d1;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            .signup{
+                color: white;
+                position: absolute;
+                bottom: -2rem;
+                left: 50%;
+                transform: translate(-50%, 0);
+                line-height: normal;
+            }
+        }
+        .plan2{
+            background-color: $yellow;
+            padding: 4rem 0;
+            margin: -4rem -2rem;
+            z-index: 1;
+            .content-price{
+                padding-top: 3rem;
+                .price, .tva, .forfait{
+                    color: white;
+                }
+                ul{
+                    li{
+                        &:before{
+                            background-color: white;
+                        }
+                        &[data-tarif="0"]{
+                            &:before{
+                                background-color: #d1d1d1;
+                            }
+                        }
+                    }
+                }
+            }
+            .signup{
+                background-color: white;
+                color: $yellow;
+                &:hover{
+                    background-color: rgb(231, 231, 231);
+                }
+            }
+
+        }
+        .plan3{
+            .content-price{
+                .price{
+                    color: $yellow;
+                }
+            }
+        }
+    }
+}
+

@@ -20,14 +20,23 @@ button{
 
     &.btn-yellow{
         background-color: $yellow;
+        &:hover{
+            background-color: $dark-yellow;
+        }
     }
 
     &.btn-green{
         background-color: $green;
+        &:hover{
+            background-color: $dark-green;
+        }
     }
 
     &.btn-navy{
         background-color: $navy;
+        &:hover{
+            background-color: $blue;
+        }
     }
 
     &.btn-light-yellow{
