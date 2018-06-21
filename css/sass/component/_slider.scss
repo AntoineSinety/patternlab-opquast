@@ -67,6 +67,20 @@ body.slider{
         background-color: $light-grey;
     }
 
+    &.reveal{
+        .reveal-content-bottom{
+            animation: revealBottom 1.5s forwards;
+        }
+
+        .reveal-content-right{
+            animation: revealRight 1.5s forwards;
+        }
+
+        .reveal-content-left{
+            animation: revealLeft 1.5s forwards;
+        }
+    }
+
     .title-section{
 
         .number-section{

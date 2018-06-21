@@ -128,8 +128,12 @@
         btnSlider.forEach(function(btn){
             cleanClass(btn, 'triggered');
         });
+        btnSlider.forEach(function(btn){
+            cleanClass(btn, 'triggered');
+        });
         if(target != slider.length){
             btnSlider[target].classList.add('triggered');
+            slider[target].classList.add('reveal');
         }
     }
 

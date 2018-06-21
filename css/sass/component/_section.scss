@@ -108,6 +108,10 @@
         text-align: center;
     }
 
+    .reveal-content-bottom{
+        text-align: center;
+    }
+
     figure{
         width: 100%;
         margin: 4rem auto;
@@ -314,7 +318,7 @@
                             &:before{
                                 background-color: #d1d1d1;
                             }
-                            
+
                         }
                     }
                 }
@@ -369,4 +373,3 @@
         }
     }
 }
-
