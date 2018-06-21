@@ -7,7 +7,7 @@
     }
     .search{
         input{
-            width: 853px;
+            width: 853px; max-width: 100%;
             height: 49px;
             border-radius: 11px;
             background-color: #f8f8f8;
@@ -26,7 +26,7 @@
             border-radius: 24px;
             background-color: #f8f8f8;
             margin: 1.5rem;
-            
+
             flex: 0 0 calc(10% - 3rem);
             padding: 1rem 0;
             text-align: center;
