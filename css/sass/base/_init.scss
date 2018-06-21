@@ -9,7 +9,9 @@ iframe html {
 
 body{
     &.no-scroll{
-        overflow-y: hidden;
+        @include media($breakpoint-xl){
+            overflow-y: hidden;
+        }
     }
 }
 

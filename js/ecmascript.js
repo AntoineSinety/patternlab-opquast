@@ -138,35 +138,42 @@
         slider = document.querySelectorAll('.section-slider'),
         btnSlider = document.querySelectorAll('.btn-slider'),
         lastScrollPos = 0,
-        flagWheel = false;
+        flagWheel = false,
+        home = document.querySelector('.home');
 
-    document.addEventListener("wheel", function(e) {
-        if(window.innerWidth >= 1000){
-            if(flagWheel){
-                return
-            }
-            let delta,
-                target = document.querySelector('.btn-slider.triggered');
-            if(target === null){
-                target = 5;
-            } else {
-                target = parseInt(target.getAttribute('data-target'));
-            }
-            if (e.wheelDelta){
-                delta = e.wheelDelta;
-            } else {
-                delta = -1 * e.deltaY;
-            }
+    if(home != undefined){
+        document.addEventListener("wheel", function(e) {
+            if(window.innerWidth >= 1000){
+                if(flagWheel){
+                    return
+                }
+                let delta,
+                    target = document.querySelector('.btn-slider.triggered');
+                if(target === null){
+                    target = 5;
+                } else {
+                    target = parseInt(target.getAttribute('data-target'));
+                }
+                if (e.wheelDelta){
+                    delta = e.wheelDelta;
+                } else {
+                    delta = -1 * e.deltaY;
+                }
 
-            if ( (delta < 0) && (target + 1 <= btnSlider.length) ){
-                sliderController(target+1);
-            } else if ( (delta > 0) && (target - 1 >= 0) ){
-                sliderController(target-1);
+                if ( (delta < 0) && (target + 1 <= btnSlider.length) ){
+                    sliderController(target+1);
+                } else if ( (delta > 0) && (target - 1 >= 0) ){
+                    sliderController(target-1);
+                }
+                flagWheel = true;
+                setTimeout(function(){flagWheel = false;}, 500);
             }
-            flagWheel = true;
-            setTimeout(function(){flagWheel = false;}, 500);
-        }
-    });
+        });
+
+        document.querySelector('.pattern-lab').classList.add('no-scroll');
+    }
+
+
 
     document.addEventListener('click', function (e) {
         let  el = e.target;

@@ -1,7 +1,80 @@
+.section-partner{
+
+    &.section-slider[class*="section-illu"]{
+        padding-bottom: 0;
+    }
+
+    .logo-partners{
+        position: relative;
+        margin-top: 5rem;
+        background-color: $light-grey;
+
+        @include media($breakpoint-xl){
+            position: absolute; bottom: 0; left: 0; right: 0;
+        }
+
+        .wrapper-md{
+            .content-logo{
+                display: flex;
+                flex-flow: row wrap; justify-content: center; align-items: center;
+            }
+        }
+
+        &::before{
+            content: "";
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 20rem;
+            background: center center no-repeat / cover;
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTQ0MnB4IiBoZWlnaHQ9IjIyN3B4IiB2aWV3Qm94PSIwIDAgMTQ0MiAyMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5GT1JNRSBQQVJUTkVSPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkZPUk1FLVBBUlRORVIiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik0xNDQxLjA4MTY0LDY3LjQwMjM0MzggQzEzOTUuMDA4OTgsMjIuNDY3NDQ3OSAxMzM4LjM4MDIxLDAgMTI3MS4xOTUzMSwwIEMxMTcwLjQxNzk3LDAgMTA4Ny4wNjEyNyw2OC41ODMwMDkzIDEwMjcuNDc2NTYsNjcuNDAyMzQzOCBDOTYyLjM2OTI0Miw2Ni4xMTIyNDgyIDg2NC43ODEyNSwtMTMuOTYwOTM3NSA3MzQuMDEzNDc1LDQ3LjI1MzkwNjIgQzU5Ni40MzE0NDcsMTExLjY1ODYzIDQxMi4wNzgxMjUsNDcuMjUzOTA2MiAyNzguMDcwMzEzLDQ3LjI1MzkwNjIgQzE4OC43MzE3NzEsNDcuMjUzOTA2MiA5Ni4wNDE2NjY3LDg3LjQ4OTU4MzMgMCwxNjcuOTYwOTM4IEwwLDIyNi41NDEyMTggTDE0NDEuMDgxNjQsMjI2LjU0MTIxOCBMMTQ0MS4wODE2NCw2Ny40MDIzNDM4IFoiIGlkPSJQYXRoLTIiIGZpbGw9IiNGN0Y3RjciPjwvcGF0aD4KICAgIDwvZz4KPC9zdmc+');
+            z-index: -1;
+            transform: translateY(-50%);
+        }
+    }
+}
+
 [class *= "section-illu"]{
 
     @include media($breakpoint-xl){
         padding: 0;
+    }
+
+    .content{
+        @include media($breakpoint-xl){
+            max-width: 60%;
+        }
+
+        p{
+            margin: 3rem 0;
+
+            @include media($breakpoint-grid){
+                margin: 6rem 0;
+            }
+        }
+
+        figure{
+            position: absolute; top: -2.5rem;
+            margin: 3rem 0;
+            z-index: -1;
+            width: 60%;
+
+            @include media($breakpoint-xl){
+                position: absolute; top: 0; bottom: 0; right: auto;
+                width: 50%;
+            }
+
+            img{
+                max-height: 30rem;
+
+                @include media($breakpoint-xl){
+                    max-height: inherit;
+                }
+
+                @supports (object-fit: contain) {
+                    object-fit: contain;
+                    width: 100%; height: 100%;
+                }
+            }
+        }
     }
 
     &.section-illu-right{
@@ -21,45 +94,6 @@
     &.section-illu-left {
         figure {
             right: 0;
-        }
-    }
-
-    figure{
-        position: absolute; top: -2.5rem;
-        margin: 3rem 0;
-        z-index: -1;
-        width: 60%;
-
-        @include media($breakpoint-xl){
-            position: absolute; top: 0; bottom: 0; right: auto;
-            width: 50%;
-        }
-
-        img{
-            max-height: 30rem;
-
-            @include media($breakpoint-xl){
-                max-height: inherit;
-            }
-
-            @supports (object-fit: contain) {
-                object-fit: contain;
-                width: 100%; height: 100%;
-            }
-        }
-    }
-
-    .content{
-        @include media($breakpoint-xl){
-            max-width: 60%;
-        }
-
-        p{
-            margin: 3rem 0;
-
-            @include media($breakpoint-grid){
-                margin: 6rem 0;
-            }
         }
     }
 }
@@ -87,11 +121,7 @@
 .section-3-col{
 
     .title-section{
-        text-align: center;
-
-        @include media($breakpoint-grid){
-            text-align: left;
-        }
+        text-align: center; margin-top: 5rem;
     }
 
     .grid-3{
@@ -121,7 +151,7 @@
 
                 .content{
                     order: 1;
-                    margin-left: 0; margin-right: 3rem;
+                    margin-left: 0;
 
                     @include media($breakpoint-grid){
                         order: 2;
@@ -129,21 +159,23 @@
                 }
             }
 
-
-            img{
+            figure{
                 flex: 0 0 40%;
-                max-width: 100%;
-                height: auto;
-                margin: auto;
                 margin-bottom: 3rem;
-                max-height: 350px;
+
                 @include media($breakpoint-grid){
                     flex: 0 0 100%;
+                }
+
+                img{
+                    @include media($breakpoint-grid){
+                        height: 30rem;
+                    }
                 }
             }
 
             .content{
-                flex: 0 0 60%; margin-left: 3rem;
+                flex: 0 0 60%;
 
 
                 &:nth-child(2){
@@ -154,14 +186,13 @@
                     }
                 }
             }
-            .wrapper-texte{
-                padding: 0 3rem;
-            }
+
             h4{
                 margin: auto;
                 margin-bottom: 1.5rem;
                 text-align: center;
             }
+
             .texte{
                 text-align: center;
             }

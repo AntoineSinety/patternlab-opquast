@@ -99,6 +99,7 @@ nav {
         display: flex;
         animation: translateMenu 0.8s forwards;
         overflow-y: scroll;
+        z-index: 5;
     }
 
     ul{
@@ -173,7 +174,7 @@ nav {
 }
 
 
-// Page checklist seulement 
+// Page checklist seulement
 .nav-sous-menu-checklist{
     margin-bottom: 6.5rem;
     margin-top: 4rem;
