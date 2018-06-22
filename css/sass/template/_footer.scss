@@ -23,12 +23,7 @@
         font-size: 0.75em;
         line-height: 2em;
     }
-    .copyright{
-        font-family: $font-content;
-        font-size: 14px;
-        text-align: center;
-        padding-bottom: 5rem;
-    }
+
     .rs-footer{
         display: flex;
         li {
@@ -54,10 +49,8 @@
                 margin-bottom:  0;
             }
             input[type="text"]{
-                border: 1px solid white;
+                border: 2px solid white;
                 background-color: transparent;
-                border-top-left-radius: 5px;
-                border-bottom-left-radius: 5px;
                 height: 30px;
                 width: 100%;
                 padding: 0 10px;
@@ -71,36 +64,46 @@
             width: 5rem;
             input{
                 border: none;
-                background-color: $green;
+                background-color: white;
                 -webkit-appearance: none;
                 height: 30px;
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
-                text-indent: -9999px;
                 width: 100%;
+                color: $yellow;
             }
-            &::before,
-            &::after{
-                width: 12px;
-                height: 2px;
-                content: '';
-                position: absolute;
-                margin: auto;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background-color: white;
-                border-radius: 2px;
-            }
-            &::before{
-                transform: rotate(45deg);
-                top: -7px;
-            }
-            &::after{
-                transform: rotate(-45deg);
-                top: 7px;
-            }
+            // &::before,
+            // &::after{
+            //     width: 12px;
+            //     height: 2px;
+            //     content: '';
+            //     position: absolute;
+            //     margin: auto;
+            //     top: 0;
+            //     bottom: 0;
+            //     left: 0;
+            //     right: 0;
+            //     background-color: white;
+            //     border-radius: 2px;
+            // }
+            // &::before{
+            //     transform: rotate(45deg);
+            //     top: -7px;
+            // }
+            // &::after{
+            //     transform: rotate(-45deg);
+            //     top: 7px;
+            // }
+        }
+    }
+    .copyright{
+        font-family: $font-content;
+        font-size: 0.875em;
+        text-align: center;
+        background-color: #f8f8f8;
+        letter-spacing: 1px;
+        .right{
+            padding: 1.7rem;
+            margin: auto;
+            color: $navy;
         }
     }
 }
