@@ -137,13 +137,41 @@
         }
     }
 
+    const critereController = function(target, btnTarget) {
+        let criteres = document.querySelectorAll('.critere-item'),
+            criteresTarget = document.querySelectorAll('.critere-'+target),
+            btnLs = document.querySelectorAll('.btn-checklist'),
+            first = true,
+            btnAll = document.querySelector('.btn-checklist-all'),
+            paginate = document.querySelector('.paginate-critere');
+        criteres.forEach(function(el){
+            if(el.classList.contains('critere-'+target) && first){
+                el.classList.add('triggered');
+                first = false;
+            } else {
+                cleanClass(el, 'triggered');
+            }
+        });
+        btnLs.forEach(function(btn){
+            cleanClass(btn, 'actif');
+        })
+        btnTarget.classList.add('actif');
+        cleanClass(btnAll, 'disabled');
+        btnAll.setAttribute('data-type', target);
+        cleanClass(paginate, 'disabled');
+        numSlide = 0;
+        document.querySelector('.num-slide').textContent = numSlide + 1;
+        document.querySelector('.total-slide').textContent = criteresTarget.length;
+    }
+
     //----- INIT -----
     let flagBurger = true,
         slider = document.querySelectorAll('.section-slider'),
         btnSlider = document.querySelectorAll('.btn-slider'),
         lastScrollPos = 0,
         flagWheel = false,
-        home = document.querySelector('.home');
+        home = document.querySelector('.home'),
+        numSlide = 0;
 
     if(home != undefined){
         document.addEventListener("wheel", function(e) {
@@ -189,6 +217,51 @@
 
         if (el.classList.contains('btn-slider')){
             sliderController(el.getAttribute('data-target'));
+        };
+
+        if (el.classList.contains('btn-checklist')){
+            critereController(el.getAttribute('data-target'), el);
+        };
+
+        if (el.classList.contains('btn-checklist-all')){
+            let type = el.getAttribute('data-type'),
+                criteres = document.querySelectorAll('.critere-'+type),
+                paginate = document.querySelector('.paginate-critere');
+            criteres.forEach(function(el){
+                el.classList.add('triggered');
+            });
+            el.classList.add('disabled');
+            paginate.classList.add('disabled');
+        };
+
+        if (el.classList.contains('btn-checklist-suiv')){
+            let type = document.querySelector('.btn-checklist-all').getAttribute('data-type'),
+                criteres = document.querySelectorAll('.critere-'+type);
+            criteres.forEach(function(el){
+                cleanClass(el, 'triggered');
+            });
+            if(criteres[numSlide + 1] != undefined){
+                numSlide += 1;
+            } else {
+                numSlide = 0;
+            }
+            criteres[numSlide].classList.add('triggered');
+            document.querySelector('.num-slide').textContent = numSlide + 1;
+        };
+
+        if (el.classList.contains('btn-checklist-prec')){
+            let type = document.querySelector('.btn-checklist-all').getAttribute('data-type'),
+                criteres = document.querySelectorAll('.critere-'+type);
+            criteres.forEach(function(el){
+                cleanClass(el, 'triggered');
+            });
+            if(criteres[numSlide - 1] != undefined){
+                numSlide -= 1;
+            } else {
+                numSlide = criteres.length - 1;
+            }
+            criteres[numSlide].classList.add('triggered');
+            document.querySelector('.num-slide').textContent = numSlide + 1;
         };
 	});
 

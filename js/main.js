@@ -191,13 +191,41 @@
         }
     };
 
+    var critereController = function critereController(target, btnTarget) {
+        var criteres = document.querySelectorAll('.critere-item'),
+            criteresTarget = document.querySelectorAll('.critere-' + target),
+            btnLs = document.querySelectorAll('.btn-checklist'),
+            first = true,
+            btnAll = document.querySelector('.btn-checklist-all'),
+            paginate = document.querySelector('.paginate-critere');
+        criteres.forEach(function (el) {
+            if (el.classList.contains('critere-' + target) && first) {
+                el.classList.add('triggered');
+                first = false;
+            } else {
+                cleanClass(el, 'triggered');
+            }
+        });
+        btnLs.forEach(function (btn) {
+            cleanClass(btn, 'actif');
+        });
+        btnTarget.classList.add('actif');
+        cleanClass(btnAll, 'disabled');
+        btnAll.setAttribute('data-type', target);
+        cleanClass(paginate, 'disabled');
+        numSlide = 0;
+        document.querySelector('.num-slide').textContent = numSlide + 1;
+        document.querySelector('.total-slide').textContent = criteresTarget.length;
+    };
+
     //----- INIT -----
     var flagBurger = true,
         slider = document.querySelectorAll('.section-slider'),
         btnSlider = document.querySelectorAll('.btn-slider'),
         lastScrollPos = 0,
         flagWheel = false,
-        home = document.querySelector('.home');
+        home = document.querySelector('.home'),
+        numSlide = 0;
 
     if (home != undefined) {
         document.addEventListener("wheel", function (e) {
@@ -243,6 +271,51 @@
 
         if (el.classList.contains('btn-slider')) {
             sliderController(el.getAttribute('data-target'));
+        };
+
+        if (el.classList.contains('btn-checklist')) {
+            critereController(el.getAttribute('data-target'), el);
+        };
+
+        if (el.classList.contains('btn-checklist-all')) {
+            var type = el.getAttribute('data-type'),
+                criteres = document.querySelectorAll('.critere-' + type),
+                paginate = document.querySelector('.paginate-critere');
+            criteres.forEach(function (el) {
+                el.classList.add('triggered');
+            });
+            el.classList.add('disabled');
+            paginate.classList.add('disabled');
+        };
+
+        if (el.classList.contains('btn-checklist-suiv')) {
+            var _type = document.querySelector('.btn-checklist-all').getAttribute('data-type'),
+                _criteres = document.querySelectorAll('.critere-' + _type);
+            _criteres.forEach(function (el) {
+                cleanClass(el, 'triggered');
+            });
+            if (_criteres[numSlide + 1] != undefined) {
+                numSlide += 1;
+            } else {
+                numSlide = 0;
+            }
+            _criteres[numSlide].classList.add('triggered');
+            document.querySelector('.num-slide').textContent = numSlide + 1;
+        };
+
+        if (el.classList.contains('btn-checklist-prec')) {
+            var _type2 = document.querySelector('.btn-checklist-all').getAttribute('data-type'),
+                _criteres2 = document.querySelectorAll('.critere-' + _type2);
+            _criteres2.forEach(function (el) {
+                cleanClass(el, 'triggered');
+            });
+            if (_criteres2[numSlide - 1] != undefined) {
+                numSlide -= 1;
+            } else {
+                numSlide = _criteres2.length - 1;
+            }
+            _criteres2[numSlide].classList.add('triggered');
+            document.querySelector('.num-slide').textContent = numSlide + 1;
         };
     });
 })();
