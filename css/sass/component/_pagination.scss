@@ -15,6 +15,9 @@
         &:last-child{
             transform: rotate(180deg);
         }
+        svg{
+            pointer-events: none;
+        }
     }
 
     p{
